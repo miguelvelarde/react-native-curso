@@ -7,9 +7,9 @@ import {
 } from "react";
 
 enum AuthStatus {
-  "Checking" = "Checking", // = 0
-  "Authenticated" = "Authenticated", // = 1
-  "Unauthenticated" = "Unauthenticated", // = 2
+  "Checking", // = 0
+  "Authenticated", // = 1
+  "Unauthenticated", // = 2
 }
 
 interface AuthState {
