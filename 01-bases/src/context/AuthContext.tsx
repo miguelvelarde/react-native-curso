@@ -7,9 +7,9 @@ import {
 } from "react";
 
 enum AuthStatus {
-  "checking" = "checking",
-  "authenticated" = "authenticated",
-  "unauthenticated" = "unauthenticated",
+  "Checking" = "Checking", // = 0
+  "Authenticated" = "Authenticated", // = 1
+  "Unauthenticated" = "Unauthenticated", // = 2
 }
 
 interface AuthState {
@@ -20,7 +20,13 @@ interface AuthState {
   isAuthenticated: boolean;
 
   //metodos
-  loginWithEmailAndPassword: (email: string, password: string) => void;
+  loginWithEmailAndPassword: (
+    name: string,
+    email: string,
+    password: string
+  ) => void;
+
+  logout: () => void;
 }
 
 interface User {
@@ -33,23 +39,36 @@ export const AuthContext = createContext({} as AuthState);
 export const useAuthContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }: PropsWithChildren) => {
-  const [status, setStatus] = useState(AuthStatus.checking);
+  const [status, setStatus] = useState(AuthStatus.Checking);
 
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
     setTimeout(() => {
-      setStatus(AuthStatus.unauthenticated);
+      setStatus(AuthStatus.Unauthenticated);
     }, 5000);
   }, []);
 
-  const loginWithEmailAndPassword = (email: string, password: string) => {
+  const loginWithEmailAndPassword = (
+    name: string,
+    email: string,
+    password: string
+  ) => {
     setUser({
-      name: "Miguelon",
+      name: name,
       email: email,
     });
 
-    setStatus(AuthStatus.authenticated);
+    if (email === "" || name === "") {
+      setStatus(AuthStatus.Unauthenticated);
+    } else {
+      setStatus(AuthStatus.Authenticated);
+    }
+  };
+
+  const logout = () => {
+    setUser(undefined);
+    setStatus(AuthStatus.Unauthenticated);
   };
 
   return (
@@ -57,11 +76,12 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       value={{
         status: status,
         user: user,
-        isChecking: status === AuthStatus.checking,
-        isAuthenticated: status === AuthStatus.authenticated,
+        isChecking: status === AuthStatus.Checking,
+        isAuthenticated: status === AuthStatus.Authenticated,
 
         //metodo o accion
         loginWithEmailAndPassword,
+        logout,
       }}
     >
       {children}
