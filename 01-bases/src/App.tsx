@@ -7,7 +7,8 @@ import "./App.css";
 //import { Counter } from "./components/Counter";
 import { AuthProvider } from "./context/AuthContext";
 import { LoginPage } from "./components/LoginPage";
-import { UsersPage } from "./components/UsersPage";
+// import { UsersPage } from "./components/UsersPage";
+import { FormsPage } from "./components/FormsPage";
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
         {/* <BasicFunction /> */}
         {/* <Counter /> */}
         {/* <MyComponente></MyComponente> */}
-        <UsersPage></UsersPage>
-        <LoginPage></LoginPage>
+        {/* <UsersPage></UsersPage>
+        <LoginPage></LoginPage> */}
+
+        <FormsPage></FormsPage>
       </div>
     </AuthProvider>
   );
