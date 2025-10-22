@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 type FormInputs = { email: string; password: string };
 
 export const FormsPage = () => {
-  const { register, handleSubmit } = useForm<FormInputs>({
+  const { register, handleSubmit, watch } = useForm<FormInputs>({
     defaultValues: {
       email: "uncorreo@fake.com",
       password: "1234567",
@@ -14,6 +14,9 @@ export const FormsPage = () => {
     console.log("entrando al evento onSubmit");
     console.log({ myForm });
   };
+
+  console.log(watch("email"));
+  console.log(watch("password"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
