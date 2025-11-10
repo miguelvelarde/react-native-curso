@@ -20,24 +20,24 @@ const CalculatorApp = () => {
           label="C"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("C")}
+          onPressButton={() => console.log("C")}
         ></CalculatorButton>
         <CalculatorButton
           label="+/-"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("+/-")}
+          onPressButton={() => console.log("+/-")}
         ></CalculatorButton>
         <CalculatorButton
           label="Del"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("Del")}
+          onPressButton={() => console.log("Del")}
         ></CalculatorButton>
         <CalculatorButton
           label="/"
           color={Colors.orange}
-          onPress={() => console.log("/")}
+          onPressButton={() => console.log("/")}
         ></CalculatorButton>
       </View>
 
@@ -46,24 +46,24 @@ const CalculatorApp = () => {
           label="7"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("7")}
+          onPressButton={() => console.log("7")}
         ></CalculatorButton>
         <CalculatorButton
           label="8"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("8")}
+          onPressButton={() => console.log("8")}
         ></CalculatorButton>
         <CalculatorButton
           label="9"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("9")}
+          onPressButton={() => console.log("9")}
         ></CalculatorButton>
         <CalculatorButton
           label="*"
           color={Colors.orange}
-          onPress={() => console.log("*")}
+          onPressButton={() => console.log("*")}
         ></CalculatorButton>
       </View>
 
@@ -72,24 +72,24 @@ const CalculatorApp = () => {
           label="4"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("4")}
+          onPressButton={() => console.log("4")}
         ></CalculatorButton>
         <CalculatorButton
           label="5"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("5")}
+          onPressButton={() => console.log("5")}
         ></CalculatorButton>
         <CalculatorButton
           label="6"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("6")}
+          onPressButton={() => console.log("6")}
         ></CalculatorButton>
         <CalculatorButton
           label="-"
           color={Colors.orange}
-          onPress={() => console.log("-")}
+          onPressButton={() => console.log("-")}
         ></CalculatorButton>
       </View>
 
@@ -98,24 +98,24 @@ const CalculatorApp = () => {
           label="1"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("1")}
+          onPressButton={() => console.log("1")}
         ></CalculatorButton>
         <CalculatorButton
           label="2"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("2")}
+          onPressButton={() => console.log("2")}
         ></CalculatorButton>
         <CalculatorButton
           label="3"
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log("3")}
+          onPressButton={() => console.log("3")}
         ></CalculatorButton>
         <CalculatorButton
           label="+"
           color={Colors.orange}
-          onPress={() => console.log("+")}
+          onPressButton={() => console.log("+")}
         ></CalculatorButton>
       </View>
 
@@ -125,19 +125,19 @@ const CalculatorApp = () => {
           blackText
           doubleSize
           color={Colors.ligthGrey}
-          onPress={() => console.log("0")}
+          onPressButton={() => console.log("0")}
         ></CalculatorButton>
         <CalculatorButton
           label="."
           blackText
           color={Colors.ligthGrey}
-          onPress={() => console.log(".")}
+          onPressButton={() => console.log(".")}
         ></CalculatorButton>
 
         <CalculatorButton
           label="="
           color={Colors.orange}
-          onPress={() => console.log("=")}
+          onPressButton={() => console.log("=")}
         ></CalculatorButton>
       </View>
     </View>
