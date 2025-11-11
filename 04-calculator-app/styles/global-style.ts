@@ -45,13 +45,13 @@ export const globalStyle = StyleSheet.create({
     backgroundColor: Colors.darkGrey,
     borderRadius: 100,
     justifyContent: "center",
-    marginHorizontal: 10,
+    marginHorizontal: 5,
   },
 
   textButton: {
     textAlign: "center",
     padding: 10,
-    fontSize: 30,
+    fontSize: 25,
     color: Colors.textPrimary,
     fontWeight: "300",
   },
