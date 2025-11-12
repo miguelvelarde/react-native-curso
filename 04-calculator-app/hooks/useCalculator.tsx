@@ -12,12 +12,19 @@ export const useCalculator = () => {
   const [number, setNumber] = useState("0");
   const [prevNumber, setPrevNumber] = useState("0");
 
-  const lastOperation = useRef<Operator>("");
+  const lastOperation = useRef<Operator>();
 
   useEffect(() => {
     //todo: calculate sub result
     setFormula(number);
   }, [number]);
+
+  const clean = () => {
+    setFormula("0");
+    setNumber("0");
+    setPrevNumber("0");
+    lastOperation.current = undefined;
+  };
 
   const buildNumber = (numberString: string) => {
     console.log({ numberString });
@@ -55,5 +62,6 @@ export const useCalculator = () => {
 
     // methods
     buildNumber,
+    clean,
   };
 };
