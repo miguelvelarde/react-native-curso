@@ -51,35 +51,41 @@ export const useCalculator = () => {
   };
 
   const buildNumber = (numberString: string) => {
-    console.log({ numberString });
-
+    // Evita agregar otro punto decimal si ya existe uno
     if (number.includes(".") && numberString === ".") {
       return;
     }
 
+    // Manejo de números que empiezan con 0 o -0
     if (number.startsWith("0") || number.startsWith("-0")) {
-      console.log("evaluando");
+      // Permite agregar el punto decimal después de 0 o -0
       if (numberString === ".") {
-        console.log("opcion1");
         return setNumber(number + numberString);
       }
 
+      // Permite agregar ceros después del punto decimal (ej: 0.0, -0.0)
       if (numberString === "0" && number.includes(".")) {
-        console.log("opcion2");
         return setNumber(number + numberString);
       }
 
+      // Reemplaza el 0 inicial por el nuevo número (excepto si es 0 o punto)
       if (numberString !== "0" && !number.includes(".")) {
-        console.log("opcion3");
-        return setNumber(numberString);
+        if (number.includes("-")) {
+          // Si el número es negativo, conserva el signo
+          return setNumber("-" + numberString);
+        } else {
+          // Si es positivo, simplemente asigna el nuevo número
+          return setNumber(numberString);
+        }
       }
 
+      // Evita agregar más ceros si no hay punto decimal
       if (numberString === "0" && !number.includes(".")) {
-        console.log("opcion4");
         return;
       }
     }
 
+    // Concatenación normal de números
     setNumber(number + numberString);
   };
 
