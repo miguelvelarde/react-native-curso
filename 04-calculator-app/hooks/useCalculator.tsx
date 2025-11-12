@@ -50,6 +50,21 @@ export const useCalculator = () => {
     setNumber("0");
   };
 
+  const setLastNumber = () => {
+    if (number.endsWith(".")) {
+      console.log(number.slice(0, -1));
+      setPrevNumber(number.slice(0, -1));
+    }
+
+    setPrevNumber(number);
+    setNumber("0");
+  };
+
+  const divideOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.divide;
+  };
+
   const buildNumber = (numberString: string) => {
     // Evita agregar otro punto decimal si ya existe uno
     if (number.includes(".") && numberString === ".") {
@@ -100,5 +115,6 @@ export const useCalculator = () => {
     clean,
     toogleSign,
     deleteLast,
+    divideOperation,
   };
 };

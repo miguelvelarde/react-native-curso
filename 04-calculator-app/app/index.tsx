@@ -7,15 +7,27 @@ import { useCalculator } from "@/hooks/useCalculator";
 import { globalStyle } from "@/styles/global-style";
 
 const CalculatorApp = () => {
-  const { formula, buildNumber, clean, toogleSign, deleteLast } =
-    useCalculator();
+  const {
+    formula,
+    prevNumber,
+    buildNumber,
+    clean,
+    toogleSign,
+    deleteLast,
+    divideOperation,
+  } = useCalculator();
 
   return (
     <View style={globalStyle.calculatorContainer}>
       {/* results */}
       <View style={globalStyle.operationsView}>
         <CustomText variant="h1">{formula}</CustomText>
-        <CustomText variant="h2">2500</CustomText>
+
+        {formula === prevNumber ? (
+          <CustomText variant="h2">0</CustomText>
+        ) : (
+          <CustomText variant="h2">{prevNumber}</CustomText>
+        )}
       </View>
 
       {/* buttons */}
@@ -41,7 +53,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="/"
           color={Colors.orange}
-          onPressButton={() => console.log("/")}
+          onPressButton={divideOperation}
         ></CalculatorButton>
       </View>
 
