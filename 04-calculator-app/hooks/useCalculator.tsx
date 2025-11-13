@@ -5,6 +5,7 @@ enum Operator {
   substract = "-",
   multiply = "x",
   divide = "/",
+  undefined = "`",
 }
 
 export const useCalculator = () => {
@@ -12,19 +13,28 @@ export const useCalculator = () => {
   const [number, setNumber] = useState("0");
   const [prevNumber, setPrevNumber] = useState("0");
 
-  const lastOperation = useRef<Operator>();
+  const lastOperation = useRef<Operator>(undefined);
 
   useEffect(() => {
-    //todo: calculate sub result
-    setFormula(number);
-  }, [number]);
+    if (lastOperation.current) {
+      const firstFormulaPart = formula.split(" ").at(0);
+      setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
+    } else {
+      setFormula(number);
+    }
+  }, [formula, number]);
 
-  const clean = () => {
+  useEffect(() => {
+    const subResult = calculateSubResult();
+    setPrevNumber(`${subResult}`);
+  }, [formula]);
+
+  function clean() {
     setFormula("0");
     setNumber("0");
     setPrevNumber("0");
     lastOperation.current = undefined;
-  };
+  }
 
   const toogleSign = () => {
     if (number.includes("-")) {
@@ -63,6 +73,60 @@ export const useCalculator = () => {
   const divideOperation = () => {
     setLastNumber();
     lastOperation.current = Operator.divide;
+  };
+
+  const addOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.add;
+  };
+
+  const substractOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.substract;
+  };
+
+  const multiplyOperation = () => {
+    setLastNumber();
+    lastOperation.current = Operator.multiply;
+  };
+
+  const calculateSubResult = () => {
+    const [firstNumber, operation, secondNumber] = formula.split(" ");
+
+    const num1 = Number(firstNumber);
+    const num2 = Number(secondNumber);
+
+    if (isNaN(num2)) {
+      return num1;
+    }
+
+    switch (operation) {
+      case Operator.add:
+        return num1 + num2;
+
+      case Operator.substract:
+        return num1 - num2;
+
+      case Operator.divide:
+        if (num2 === 0) {
+          return 0;
+        }
+        return num1 / num2;
+
+      case Operator.multiply:
+        return num1 * num2;
+
+      default:
+        throw new Error(`Not supported operation ${operation}`);
+    }
+  };
+
+  const finalResult = () => {
+    const result = calculateSubResult();
+    lastOperation.current = undefined;
+    setPrevNumber("0");
+    setFormula(`${result}`);
+    setNumber(`${result}`);
   };
 
   const buildNumber = (numberString: string) => {
@@ -115,6 +179,10 @@ export const useCalculator = () => {
     clean,
     toogleSign,
     deleteLast,
+    addOperation,
+    substractOperation,
+    multiplyOperation,
     divideOperation,
+    finalResult,
   };
 };

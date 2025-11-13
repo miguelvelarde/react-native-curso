@@ -14,7 +14,11 @@ const CalculatorApp = () => {
     clean,
     toogleSign,
     deleteLast,
+    addOperation,
+    substractOperation,
+    multiplyOperation,
     divideOperation,
+    finalResult,
   } = useCalculator();
 
   return (
@@ -79,7 +83,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="*"
           color={Colors.orange}
-          onPressButton={() => console.log("*")}
+          onPressButton={multiplyOperation}
         ></CalculatorButton>
       </View>
 
@@ -105,7 +109,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="-"
           color={Colors.orange}
-          onPressButton={() => console.log("-")}
+          onPressButton={substractOperation}
         ></CalculatorButton>
       </View>
 
@@ -131,7 +135,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="+"
           color={Colors.orange}
-          onPressButton={() => console.log("+")}
+          onPressButton={addOperation}
         ></CalculatorButton>
       </View>
 
@@ -153,7 +157,7 @@ const CalculatorApp = () => {
         <CalculatorButton
           label="="
           color={Colors.orange}
-          onPressButton={() => console.log("=")}
+          onPressButton={finalResult}
         ></CalculatorButton>
       </View>
     </View>
