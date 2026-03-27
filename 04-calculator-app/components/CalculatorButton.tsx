@@ -26,6 +26,8 @@ const CalculatorButton = ({
   }, [onPressButton]);
 
   return (
+    // la propiedad pressed es una propiedad que se pasa automáticamente al usar la función style en el Pressable,
+    // y nos indica si el botón está siendo presionado o no, lo usamos para cambiar la opacidad del botón cuando se presiona
     <Pressable
       style={({ pressed }) => ({
         ...globalStyle.button,

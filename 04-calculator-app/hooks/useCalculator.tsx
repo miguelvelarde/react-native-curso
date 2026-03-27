@@ -17,7 +17,8 @@ export const useCalculator = () => {
 
   useEffect(() => {
     if (lastOperation.current) {
-      const firstFormulaPart = formula.split(" ").at(0);
+      const firstFormulaPart = formula.split(" ")[0];
+      //const firstFormulaPart = formula.split(" ").at(0);
       setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
     } else {
       setFormula(number);

@@ -9,7 +9,7 @@ export const loadUsersAction = async (page: number) => {
         params: {
           page: page,
         },
-        headers: { "x-api-key": "reqres-free-v1" },
+        headers: { "x-api-key": "reqres_a816e02036534218a53f74865c54ebae" },
       }
     );
 

@@ -8,6 +8,8 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
+      //asi se definen los colores personalizados, se pueden usar en el proyecto 
+      // con bg-primary, text-secondary-100, etc
       colors: {
         primary: "#49129c",
         secondary: {
