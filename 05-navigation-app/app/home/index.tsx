@@ -9,9 +9,15 @@ const HomeScreen = () => {
     <SafeAreaView>
     <View className="px-10 mt-5">
 
-    <CustomBoton color="primary" onPress={() => router.push('/products')}>Productos</CustomBoton>
-    <CustomBoton color="secondary" onPress={() => router.push('/profile')}>Profile</CustomBoton>
-    <CustomBoton color="tertiary" onPress={() => router.push('/settings')}>Ajustes</CustomBoton>
+    <Link href="/products" asChild>
+      <CustomBoton className="mb-2" color="tertiary">Productos</CustomBoton>
+    </Link>
+
+    <CustomBoton className="mb-2" color="primary" onPress={() => router.push('/products')}>Productos</CustomBoton>
+    
+    <CustomBoton className="mb-2" color="secondary" onPress={() => router.push('/profile')}>Profile</CustomBoton>
+    
+    <CustomBoton className="mb-2" variant="text-only" onPress={() => router.push('/settings')}>Ajustes</CustomBoton>
 
       {/* <Text className="mb-5 font-work-black">HomeScreen</Text>
 
