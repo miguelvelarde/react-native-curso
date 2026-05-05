@@ -5,10 +5,26 @@ import React from 'react';
 export default function TabsLayout() {
     return (
         <Tabs screenOptions={{
-            tabBarActiveTintColor: 'tomato',
+            headerShown: false,
+            tabBarActiveTintColor: 'indigo',
             tabBarInactiveTintColor: 'gray',
-            tabBarShowLabel: false
+            tabBarShowLabel: false,
+            // tabBarStyle: {
+            //     backgroundColor: 'white',
+            //     borderTopWidth: 0,
+            // },
+            // tabBarActiveBackgroundColor: 'rgba(0, 0, 0, 0.1)',
+
         }}>
+            <Tabs.Screen
+                name="(stack)"
+                options={{
+                    title: 'Stack Screen',
+                    tabBarIcon: ({ color, size }) => (
+                        <Ionicons name="person-outline" size={size} color={color} />
+                    ),
+                }}
+            />
             <Tabs.Screen
                 name="home/index"
                 options={{

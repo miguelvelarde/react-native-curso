@@ -2,6 +2,7 @@ import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 
 import { Slot, SplashScreen } from "expo-router";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import "./global.css";
 
 SplashScreen.preventAutoHideAsync();
@@ -21,7 +22,11 @@ const RootLayout = () => {
 
   if (!fontsLoaded && !error) return null;
 
-  return <Slot />;
+  return (
+    <SafeAreaProvider>
+      <Slot />
+    </SafeAreaProvider>
+  );
 };
 
 export default RootLayout;
