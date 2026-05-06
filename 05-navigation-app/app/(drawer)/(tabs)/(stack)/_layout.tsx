@@ -1,8 +1,22 @@
 //import { View, Text } from 'react-native'
-import { Stack } from 'expo-router'
-import React from 'react'
+import { Ionicons } from '@expo/vector-icons';
+import { DrawerActions } from '@react-navigation/native';
+import { router, Stack, useNavigation } from 'expo-router';
+import React from 'react';
 
 const StackLayout = () => {
+
+    const navigation = useNavigation();
+
+    const onHeaderLeftTap = (canGoBack?: boolean) => {
+        if (canGoBack) {
+            router.back();
+            return;
+        }
+
+        navigation.getParent()?.dispatch(DrawerActions.toggleDrawer());
+    }
+
     return (
         <Stack
             screenOptions={{
@@ -16,6 +30,15 @@ const StackLayout = () => {
                 headerTitleStyle: {
                     fontWeight: 'bold',
                 },
+                headerLeft: ({ tintColor, canGoBack }) =>
+                (
+                    <Ionicons
+                        name={canGoBack ? "arrow-back" : "grid-outline"}
+                        className='mr-5 ml-5'
+                        color={tintColor}
+                        size={20}
+                        onPress={() => onHeaderLeftTap(canGoBack)} />
+                ),
             }}>
             <Stack.Screen
                 name="home/index"
@@ -39,14 +62,11 @@ const StackLayout = () => {
             <Stack.Screen
                 name="settings/index"
                 options={{
-                    headerTitle: 'Configuración'
+                    headerTitle: 'Configuration'
                 }}
             />
             <Stack.Screen
                 name="products/[id]"
-                options={{
-                    headerTitle: 'Detalles del Producto'
-                }}
             />
         </Stack>
     )

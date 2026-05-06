@@ -3,7 +3,7 @@ import React from "react";
 
 const App = () => {
   //return <Redirect href="/home"></Redirect>;
-  return <Redirect href="/drawer"></Redirect>;
+  return <Redirect href="/(drawer)/(tabs)/(stack)/home"></Redirect>;
 
   // return (
   //   <SafeAreaView>

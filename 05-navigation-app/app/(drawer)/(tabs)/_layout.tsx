@@ -5,7 +5,6 @@ import React from 'react';
 export default function TabsLayout() {
     return (
         <Tabs screenOptions={{
-            headerShown: false,
             tabBarActiveTintColor: 'indigo',
             tabBarInactiveTintColor: 'gray',
             tabBarShowLabel: false,
@@ -19,6 +18,7 @@ export default function TabsLayout() {
             <Tabs.Screen
                 name="(stack)"
                 options={{
+                    headerShown: false,
                     title: 'Stack Screen',
                     tabBarIcon: ({ color, size }) => (
                         <Ionicons name="person-outline" size={size} color={color} />
