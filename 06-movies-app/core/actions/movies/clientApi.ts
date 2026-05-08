@@ -1,4 +1,4 @@
-import { MovieDBPopularInterface } from "@/infrastructure/interfaces/imoviedb-popular";
+import { MovieDBPopularInterface } from "@/infrastructure/interfaces/moviedb-popular-interface";
 import { axiosApi } from "../api/axiosApi";
 
 export const clientApi = async () => {

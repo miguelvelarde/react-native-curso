@@ -5,3 +5,5 @@ https://api.themoviedb.org/3/movie
 
 
 https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
+
+https://developer.themoviedb.org/docs/getting-started
