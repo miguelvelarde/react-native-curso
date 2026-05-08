@@ -1,5 +1,7 @@
+//https://www.npmjs.com/package/react-native-reanimated-carousel
+
 import { useRef } from 'react';
-import { View, Text, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 
 import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel';
 
