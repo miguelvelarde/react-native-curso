@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 
 import '../global.css';
 import { nowPlayingAction } from '@/core/actions/movies/now-playing.action';
+import { clientApi } from '@/core/actions/movies/clientApi';
 
 const RootLayout = () => {
   useEffect(() => {
@@ -10,6 +11,13 @@ const RootLayout = () => {
       console.error('Failed to load now playing movies:', error);
     });
   }, []);
+
+
+  // useEffect(() => {
+  //   clientApi().catch((error) => {
+  //     console.error('Failed to load popular movies:', error);
+  //   });
+  // }, []);
 
   return (
     <View>

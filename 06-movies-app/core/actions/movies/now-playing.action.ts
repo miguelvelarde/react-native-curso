@@ -1,13 +1,18 @@
-import { MovieDBMoviesResponse } from '@/infrastructure/interfaces/movieDB-response';
+import { MovieDbNowPlayingInterface } from '@/infrastructure/interfaces/moviedb-nowplaying-interface';
 import { moviesApi } from '../api/moviesApi';
+import { MovieMapper } from '@/infrastructure/mappers/movie-mapper';
 
 
 export const nowPlayingAction = async () => {
 
     try {
-        const { data } = await moviesApi.get<MovieDBMoviesResponse>('/now_playing');
-        console.log(JSON.stringify(data, null, 2));
-        return data.results;
+        const { data } = await moviesApi.get<MovieDbNowPlayingInterface>('/now_playing');
+
+        const movies = data.results.map(MovieMapper.fromTheMovieDBToDomain);
+
+        console.log(JSON.stringify(movies, null, 2));
+
+        return movies;
     }
     catch (error) {
         console.log(error);
