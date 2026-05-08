@@ -8,11 +8,11 @@ import { Stack } from 'expo-router';
 const queryClient = new QueryClient();
 
 const RootLayout = () => {
-  useEffect(() => {
-    nowPlayingAction().catch((error) => {
-      console.error('Failed to load now playing movies:', error);
-    });
-  }, []);
+  // useEffect(() => {
+  //   nowPlayingAction().catch((error) => {
+  //     console.error('Failed to load now playing movies:', error);
+  //   });
+  // }, []);
 
 
   return (

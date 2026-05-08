@@ -6,6 +6,7 @@ import { MovieMapper } from '@/infrastructure/mappers/movie-mapper';
 export const nowPlayingAction = async () => {
 
     try {
+
         const { data } = await moviesApi.get<MovieDbNowPlayingInterface>('/now_playing');
 
         const movies = data.results.map(MovieMapper.fromTheMovieDBToDomain);
