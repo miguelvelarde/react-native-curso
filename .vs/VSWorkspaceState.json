@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\05-navigation-app",
+    "\\05-navigation-app\\app",
+    "\\05-navigation-app\\components",
+    "\\05-navigation-app\\components\\shared"
+  ],
+  "SelectedNode": "\\05-navigation-app\\components\\shared\\CustomDrawer.tsx",
+  "PreviewInSolutionExplorer": false
+}
