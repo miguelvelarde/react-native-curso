@@ -5,6 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import MainSlideshow from '@/presentation/components/movies/MainSlideshow';
 import MoviesHorizontalList from '@/presentation/components/movies/MoviesHorizontalList';
 
+
 const HomeScreen = () => {
 
     const { nowPlayingQuery, popularQuery, ratedQuery, upcomingQuery } = useMovies();
