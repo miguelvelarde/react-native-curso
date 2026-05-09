@@ -3,16 +3,16 @@ import { MovieMapper } from '@/infrastructure/mappers/movie-mapper';
 import { MovieDbInterface } from "@/infrastructure/interfaces/moviedb-interface";
 
 // Options es un objeto que puede tener page y limit, ambos opcionales, con valores por defecto
-// y se pasa como argumento a la función popularMoviesAction, que es una función asíncrona que devuelve una promesa de un array de películas
+// y se pasa como argumento a la función uncomingMoviesAction, que es una función asíncrona que devuelve una promesa de un array de películas
 interface Options {
     page?: number;
     limit?: number;
 }
 
-// popularMoviesAction es una función asíncrona que recibe un objeto de opciones con page y limit, y devuelve una promesa de un array de películas
-export const popularMoviesAction = async ({ page = 1, limit = 10 }: Options) => {
+// uncomingMoviesAction es una función asíncrona que recibe un objeto de opciones con page y limit, y devuelve una promesa de un array de películas
+export const uncomingMoviesAction = async ({ page = 1, limit = 10 }: Options) => {
     try {
-        const { data } = await moviesApi.get<MovieDbInterface>('/popular', {
+        const { data } = await moviesApi.get<MovieDbInterface>('/upcoming', {
             params: { page, limit }
         });
 
@@ -24,6 +24,6 @@ export const popularMoviesAction = async ({ page = 1, limit = 10 }: Options) => 
     }
     catch (error) {
         console.log(error);
-        throw new Error('Error fetching popular movies');
+        throw new Error('Error fetching upcoming movies');
     }
 }

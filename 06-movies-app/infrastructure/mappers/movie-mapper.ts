@@ -1,4 +1,4 @@
-import { Result } from "../interfaces/moviedb-nowplaying-interface";
+import { Result } from "../interfaces/moviedb-interface";
 import { MovieInterface } from "../interfaces/movie-interface";
 
 export class MovieMapper {
