@@ -18,6 +18,7 @@ const MainSlideshow = ({ movies, loadNextPage }: Props) => {
     const width = useWindowDimensions().width;
     const isLoading = useRef(false);
 
+    // Función para manejar el evento de scroll del carrusel
     const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
         if (isLoading.current) return;
 
