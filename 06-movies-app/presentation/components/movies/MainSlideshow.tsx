@@ -5,11 +5,11 @@ import { NativeScrollEvent, NativeSyntheticEvent, View, useWindowDimensions } fr
 
 import Carousel, { ICarouselInstance } from 'react-native-reanimated-carousel';
 
-import { MovieInterface } from '@/infrastructure/interfaces/movie-interface';
+import { Movie } from '@/infrastructure/interfaces/movie';
 import MoviePoster from './MoviePoster';
 
 interface Props {
-    movies: MovieInterface[];
+    movies: Movie[];
     loadNextPage?: () => void;
 }
 

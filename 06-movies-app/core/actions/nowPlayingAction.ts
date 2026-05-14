@@ -1,6 +1,6 @@
-import { MovieDbInterface } from '@/infrastructure/interfaces/moviedb-interface';
+import { MovieDbResponse } from '@/infrastructure/interfaces/movieDbResponse';
+import { MovieMapper } from '@/infrastructure/mappers/movieMapper';
 import { moviesApi } from '../api/moviesApi';
-import { MovieMapper } from '@/infrastructure/mappers/movie-mapper';
 
 // Options es un objeto que puede tener page y limit, ambos opcionales, con valores por defecto
 // y se pasa como argumento a la función nowPlayingAction, que es una función asíncrona que devuelve una promesa de un array de películas
@@ -14,7 +14,7 @@ export const nowPlayingAction = async ({ page = 1, limit = 10 }: Options) => {
 
     try {
 
-        const { data } = await moviesApi.get<MovieDbInterface>('/now_playing', {
+        const { data } = await moviesApi.get<MovieDbResponse>('/now_playing', {
             params: { page, limit }
         });
 

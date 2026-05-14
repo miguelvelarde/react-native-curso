@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { nowPlayingAction } from '@/core/actions/movies/now-playing.action';
+import React from 'react';
 
-import '../global.css';
 import { Stack } from 'expo-router';
+import '../global.css';
 
 const queryClient = new QueryClient();
 

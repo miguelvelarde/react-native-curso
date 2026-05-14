@@ -1,17 +1,17 @@
+import { Movie } from '@/infrastructure/interfaces/movie';
 import { useEffect, useRef } from 'react';
 import {
-    View,
-    Text,
     FlatList,
     NativeScrollEvent,
     NativeSyntheticEvent,
+    Text,
+    View,
 } from 'react-native';
-import { MovieInterface } from '@/infrastructure/interfaces/movie-interface';
 import MoviePoster from './MoviePoster';
 
 interface Props {
     title?: string;
-    movies: MovieInterface[];
+    movies: Movie[];
     className?: string;
 
     loadNextPage?: () => void;
