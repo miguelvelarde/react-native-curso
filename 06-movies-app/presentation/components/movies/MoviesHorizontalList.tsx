@@ -43,8 +43,7 @@ const MovieHorizontalList = ({
 
         isLoading.current = true;
 
-        // TODO:
-        console.log('Cargar siguientes películas');
+        //console.log('Cargar siguientes películas');
         loadNextPage && loadNextPage();
     };
 

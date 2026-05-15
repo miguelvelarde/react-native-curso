@@ -15,7 +15,7 @@ export const getMovieDetailsAction = async (id: number | string): Promise<Detail
     try {
         const { data } = await moviesApi.get<MovieDbDetailsResponse>(`/${id}`);
 
-        console.log("pelicula cargada");
+        //console.log("pelicula cargada");
 
         return MovieMapper.fromTheMovieDBToMovieDetails(data);
     }

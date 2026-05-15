@@ -19,7 +19,7 @@ export const useMovies = () => {
         initialPageParam: 1,
         queryKey: ['movies', 'popular'],
         queryFn: ({ pageParam = 1 }) => {
-            console.log('popularMoviesAction Cargando página', pageParam);
+            //console.log('popularMoviesAction Cargando página', pageParam);
             return popularMoviesAction({ page: pageParam });
         },
         staleTime: 1000 * 60 * 60 * 24,
@@ -30,7 +30,7 @@ export const useMovies = () => {
         initialPageParam: 1,
         queryKey: ['movies', 'rated'],
         queryFn: ({ pageParam = 1 }) => {
-            console.log('ratedMoviesAction Cargando página', pageParam);
+            //console.log('ratedMoviesAction Cargando página', pageParam);
             return ratedMoviesAction({ page: pageParam })
         },
         staleTime: 1000 * 60 * 60 * 24,
@@ -41,7 +41,7 @@ export const useMovies = () => {
         initialPageParam: 1,
         queryKey: ['movies', 'upcoming'],
         queryFn: ({ pageParam = 1 }) => {
-            console.log('uncomingMoviesAction Cargando página', pageParam);
+            //console.log('uncomingMoviesAction Cargando página', pageParam);
             return uncomingMoviesAction({ page: pageParam })
         },
         staleTime: 1000 * 60 * 60 * 24,
