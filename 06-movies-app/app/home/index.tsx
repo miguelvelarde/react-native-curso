@@ -1,9 +1,9 @@
-import { View, Text, ActivityIndicator, ScrollView } from 'react-native'
-import React from 'react'
+import MainSlideshow from '@/presentation/components/MainSlideshow';
+import MoviesHorizontalList from '@/presentation/components/MoviesHorizontalList';
 import { useMovies } from '@/presentation/hooks/useMovies';
+import React from 'react';
+import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import MainSlideshow from '@/presentation/components/movies/MainSlideshow';
-import MoviesHorizontalList from '@/presentation/components/movies/MoviesHorizontalList';
 
 
 const HomeScreen = () => {
@@ -55,6 +55,8 @@ const HomeScreen = () => {
                     title='Próximamente'
                     movies={upcomingQuery.data?.pages.flat() ?? []}
                     loadNextPage={upcomingQuery.fetchNextPage} />
+                
+                <View style={{ height: 60 }} />
             </View>
         </ScrollView>
     )
