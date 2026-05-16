@@ -13,7 +13,14 @@ export const getMovieCastingAction = async (movieId: number | string): Promise<C
 
         // console.log(JSON.stringify(data, null, 2));
 
-        return data.cast.map(actor => MovieMapper.fromMovieDBCastToEntity(actor));
+        // esto tambien funciona, es lo mismo que la linea de abajo, pero con una 
+        // función flecha anónima
+        //return data.cast.map(actor => MovieMapper.fromMovieDBCastToEntity(actor));
+
+        //toma el arreglo cast de la respuesta de la API 
+        // (que contiene los actores y su información en el formato original de la base de datos) 
+        // y lo transforma usando la función fromMovieDBCastToEntity de MovieMapper.
+        return data.cast.map(MovieMapper.fromMovieDBCastToEntity);
     }
     catch (error) {
         console.log(error);
